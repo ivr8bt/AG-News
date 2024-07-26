@@ -43,5 +43,7 @@ The whole dataset contains equal numbers of each article type. Preliminary data 
 Layers without bidirectionality performed very poorly. Vocabulary size was not terribly important in determining which category an article belongs to. Layers that incorporated more nodes in the LSTM layer performed slightly better, but took far longer to train. Depending on the goal and how long you have to train will determine what approach is best. I think an LSTM approach is best for a Chatbot since this will take a very long time to train anyway, and you want the RNN to perform as well as possible if it is communicating with customers.
 	
 # References:
+
 Kalita, Debasish. 2024. “A Brief Overview of Recurrent Neural Networks (RNN)”.  Analytics Vidhya. Accessed May 12, 2024. https://www.analyticsvidhya.com/blog/2022/03/a-brief-overview-of-recurrent-neural-networks-rnn/
+
 Srivatsavaya, Prudhviraju. 2024. “LSTM vs GRU”. Medium.Accessed May 12, 2024. https://medium.com/@prudhviraju.srivatsavaya/lstm-vs-gru-c1209b8ecb5a
