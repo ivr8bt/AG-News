@@ -16,22 +16,21 @@ Recurrent neural networks were the standard for working with sequential data bef
 
 The data used was the AG news dataset obtained using tensorflow-datasets package in python. This provided a test set of 7,000 articles and a train set of 114,000 articles with a validation set of 6,000 articles. The possible labels for the articles are world, sports, business and science/tech. The labels were then assigned as categorical variables. Each of the datasets are vectorized to ints using a function with a max sequence length of 150 and max tokens of 1,000. These vectorized datasets are then used for the following models. All models unless otherwise noted use word embeddings with an input dimension of 1000 and output dimension of 256. After the embedding each model uses a bidirectional layer utilizing either simpleRNN, GRU or LSTM with 32 nodes unless otherwise noted. Following this, there is then a dropout layer of 0.5 unless otherwise noted. Lastly, a final layer for every model is a dense layer of 4 nodes with a ‘softmax’ activation function for final classification. All models used ‘sparse categorical crossentropy’ for the loss function, were trained on accuracy and use ‘rmsprop’ as the optimizer. All models use 10 epochs, but early stopping is implemented when accuracy does not improve, so some models do not complete all 10 epochs. 15 different models were utilized and are described below:
 
-•	Model 1: This model is a simple RNN and uses a one-hot encoder with a depth of 1000 rather than word embeddings. This model stopped after 9 epochs.
-•	Model 2: This model is a simple RNN that utilizes word embeddings, all subsequent models use word embeddings with the design indicated earlier in the methods section. This model stopped after 7 epochs.
-•	Model 3: This model is the same as model 2, but does not use a bidirectional RNN layer. This model stopped after 4 epochs.
-•	Model 4: This model is the same as model2, but utilizes a GRU rather than a simple RNN. This model stopped after 9 epochs.
-•	Models 5: This model is the same as model 2, but utilizes a dropout of 0.2 rather than 0.5. This model stopped after 7 epochs.
-•	Models 6: This model is the same as model 2, but uses 128 nodes rather than 32 in the RNN layer. This model stopped after 8 epochs.
-•	Model 7: This model is the same as model 2, but uses a L2 regularization with a learning rate of 0.01. This model stopped after 8 epochs.
-•	Model 8: This model is the same as model 2, but uses a LSTM rather than a simple RNN.
-•	Model 9: This model is the same as model 8, but uses a LSTM layer of 128 nodes rather than 32.
-•	Model 10: This model is the same as model 8, but does not utilize a bidirectional layer. This model stopped after 4 epochs.
-•	Model 11: This model is the same as model 8, but uses a dropout of 0.2 rather than 0.5.
-•	Model 12: This model is the same as model 8, but utilizes L2 regularization with a learning rate of 0.01. This model stopped after 7 epochs.
-•	Model 13: This model is the same as model 12, but utilizes a learning rate of 0.1.
-•	Model 14: This model is the same as model 8, but uses a word embedding with an input of 10,000 rather than 1000.
-•	Model 15: This model is a 1D convolutional neural net utilizing 128 nodes and padding of 7 with a max pooling layer with a stride of 5. It uses a ‘relu’ activation function. 
-Everything else is the same as what is indicated at the beginning of the methods section. This model stopped after 4 epochs. Accuracies and losses were recorded for the training, validation and testing sets for each model. The process time that it took to run the model was also reported.
+* Model 1: This model is a simple RNN and uses a one-hot encoder with a depth of 1000 rather than word embeddings. This model stopped after 9 epochs.
+* Model 2: This model is a simple RNN that utilizes word embeddings, all subsequent models use word embeddings with the design indicated earlier in the methods section. This model stopped after 7 epochs.
+* Model 3: This model is the same as model 2, but does not use a bidirectional RNN layer. This model stopped after 4 epochs.
+* Model 4: This model is the same as model2, but utilizes a GRU rather than a simple RNN. This model stopped after 9 epochs.
+* Models 5: This model is the same as model 2, but utilizes a dropout of 0.2 rather than 0.5. This model stopped after 7 epochs.
+* Models 6: This model is the same as model 2, but uses 128 nodes rather than 32 in the RNN layer. This model stopped after 8 epochs.
+* Model 7: This model is the same as model 2, but uses a L2 regularization with a learning rate of 0.01. This model stopped after 8 epochs.
+* Model 8: This model is the same as model 2, but uses a LSTM rather than a simple RNN.
+* Model 9: This model is the same as model 8, but uses a LSTM layer of 128 nodes rather than 32.
+* Model 10: This model is the same as model 8, but does not utilize a bidirectional layer. This model stopped after 4 epochs.
+* Model 11: This model is the same as model 8, but uses a dropout of 0.2 rather than 0.5.
+* Model 12: This model is the same as model 8, but utilizes L2 regularization with a learning rate of 0.01. This model stopped after 7 epochs.
+* Model 13: This model is the same as model 12, but utilizes a learning rate of 0.1.
+* Model 14: This model is the same as model 8, but uses a word embedding with an input of 10,000 rather than 1000.
+* Model 15: This model is a 1D convolutional neural net utilizing 128 nodes and padding of 7 with a max pooling layer with a stride of 5. It uses a ‘relu’ activation function. Everything else is the same as what is indicated at the beginning of the methods section. This model stopped after 4 epochs. Accuracies and losses were recorded for the training, validation and testing sets for each model. The process time that it took to run the model was also reported.
 
 # Results:
 
@@ -41,12 +40,6 @@ The whole dataset contains equal numbers of each article type. Preliminary data 
 
 Layers without bidirectionality performed very poorly. Vocabulary size was not terribly important in determining which category an article belongs to. Layers that incorporated more nodes in the LSTM layer performed slightly better, but took far longer to train. Depending on the goal and how long you have to train will determine what approach is best. I think an LSTM approach is best for a Chatbot since this will take a very long time to train anyway, and you want the RNN to perform as well as possible if it is communicating with customers.
 	
-
-
-
-
-
-
-References:
+# References:
 Kalita, Debasish. 2024. “A Brief Overview of Recurrent Neural Networks (RNN)”.  Analytics Vidhya. Accessed May 12, 2024. https://www.analyticsvidhya.com/blog/2022/03/a-brief-overview-of-recurrent-neural-networks-rnn/
 Srivatsavaya, Prudhviraju. 2024. “LSTM vs GRU”. Medium.Accessed May 12, 2024. https://medium.com/@prudhviraju.srivatsavaya/lstm-vs-gru-c1209b8ecb5a
